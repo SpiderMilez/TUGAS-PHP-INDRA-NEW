@@ -1,0 +1,128 @@
+// 1
+<?php
+echo "Belajar PHP itu menyenangkan"
+?>
+
+// 2
+<?php
+$nama = "Andi";
+$kelas = "XI PPLG";
+$umur = 17;
+
+echo "Nama: " . $nama . "<br>";
+echo "Kelas: " . $kelas . "<br>";
+echo "Umur: " . $umur;
+?>
+
+// 3
+<?php
+$a = 10;
+$b = 5;
+$hasil = $a + $b;
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <p>Hasil: <?php echo $hasil; ?></p>
+</body>
+</html>
+
+// 4
+<?php
+$angka = 8;
+
+if ($angka % 2 == 0) {
+    echo "Genap";
+} else {
+    echo "Ganjil";
+}
+?>
+
+// 5
+<?php
+$nilai = 80;
+
+if ($nilai >= 75) {
+    echo "Lulus";
+} else {
+    echo "Tidak Lulus";
+}
+?>
+
+// 6
+<?php
+for ($i = 1; $i <= 10; $i++) {
+    echo $i . "<br>";
+}
+?>
+
+// 7
+<?php
+$bahasa = ["HTML", "CSS", "JavaScript", "PHP"];
+
+foreach ($bahasa as $item) {
+    echo $item . "<br>";
+}
+?>
+
+// 8
+<?php
+function luas_persegi($sisi) {
+    return $sisi * $sisi;
+}
+
+// Contoh penggunaan
+echo "Luas persegi dengan sisi 5 adalah: " . luas_persegi(5);
+?>
+
+// 9
+<form method="POST">
+    Nama: <input type="text" name="nama"><br>
+    Kelas: <input type="text" name="kelas"><br>
+    <button type="submit" name="submit">Kirim</button>
+</form>
+
+<?php
+if (isset($_POST['submit'])) {
+    $nama = $_POST['nama'];
+    $kelas = $_POST['kelas'];
+    echo "Halo $nama, kelas $kelas";
+}
+?>
+
+// 10
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penilaian Siswa</title>
+</head>
+<body>
+    <form method="POST">
+        Nama: <input type="text" name="nama" required><br>
+        Nilai: <input type="number" name="nilai" required><br>
+        <button type="submit" name="proses">Cek Status</button>
+    </form>
+
+    <?php
+    if (isset($_POST['proses'])) {
+        $nama = $_POST['nama'];
+        $nilai = $_POST['nilai'];
+        
+        // Logika Status
+        if ($nilai > 85) {
+            $status = "Lulus";
+        } elseif ($nilai < 70) {
+            $status = "Remedial";
+        } else {
+            $status = "Cukup (Lulus)";
+        }
+
+        echo "<h3>Hasil:</h3>";
+        echo "Nama: $nama <br>";
+        echo "Nilai: $nilai <br>";
+        echo "Status: $status";
+    }
+    ?>
+</body>
+</html>
